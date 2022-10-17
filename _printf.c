@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 /**
-  * find_function - function that finds formats for _printf
+  * _printf - function that prints
   * calls the corresponding function.
   * @format: format (char, string, int, decimal)
   * Return: NULL or function associated ;
@@ -24,13 +24,13 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	while (find_f[i].sc)
+	while (find_f[i]'sc')
 	{
-		if (find_f[i].sc[0] == (*format))
-			return (find_f[i].f);
+		if (find_f[i]'sc'[0] == (*format))
+			return (find_f[i]'f');
 		i++;
 	}
-	return (NULL);
+	return (void);
 }
 /**
   * _printf - function that produces output according to a format.
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '\0')
 			return (cprint);
-		f = find_function(&format[i + 1]);
+		f = get_function(&format[i + 1]);
 		if (f != NULL)
 		{
 			cprint += f(ap);
