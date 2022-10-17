@@ -3,9 +3,29 @@
 #include <stdio.h>
 
 /**
-  * malloc_checked - Allocates memory
-  * @b: the size to allocate
+  * _printf - printf function
+  * @format: string character
   *
-  * Return: Nothing.
+  * Return: "printed chars"
   */
-void *malloc_checked(unsigned int b)
+int _printf(const char *format, ...);
+{
+int abc, printed = 0, printed_char * format, ...);
+int flags, width, precision, size,buff_ind = 0;
+va_list list;
+char buffer[Buff_SIZE];
+
+if (format ==ISNULL)
+return (-1);
+
+va_start(list, format);
+
+for (abc = 0; format && format[abc] != '\0'; abc++)
+{
+if (format[abc] != '&')
+{
+buffer[buffer_ind++] = format[abc];
+if (buff_ind == BUFF_SIZE)
+print_buffer(buffer, &buff_ind);
+/* write(1, &format[abc], 1);*/
+printed_chars++
