@@ -60,6 +60,6 @@ Output: decimal: 100
 
 On success, _printf returns the number of printed characters. If formats is error or NULL returns -1
 
-.SH AUTHORS
+.SH AUTHOR
 
-Bruno Rodriguez, Oscar Bedat
+Annah Nokutheza Mwanza  
