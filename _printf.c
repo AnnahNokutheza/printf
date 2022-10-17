@@ -1,4 +1,5 @@
 #include "main.h"
+<<<<<<< HEAD
 #include <unistd.h>
 /**
   * _printf - function that prints
@@ -32,46 +33,61 @@ int _printf(const char *format, ...)
 	}
 	return (void);
 }
+=======
+
+>>>>>>> fffbfc3a60dab06109a117c74ca21082dab7630a
 /**
-  * _printf - function that produces output according to a format.
-  * @format: format (char, string, int, decimal)
-  * Return: size the output text;
-  */
-int _printf(const char *format, ...)
+ * _printf - prints formatted data to stdout
+ * @format: string that contains the format to print
+ * Return: number of characters written
+ */
+int _printf(char *format, ...)
 {
-	va_list ap;
-	int (*f)(va_list);
-	unsigned int i = 0, cprint = 0;
+	int written = 0, (*structype)(char *, va_list);
+	char q[3];
+	va_list pa;
 
 	if (format == NULL)
 		return (-1);
-	va_start(ap, format);
-	while (format[i])
+	q[2] = '\0';
+	va_start(pa, format);
+	_putchar(-1);
+	while (format[0])
 	{
-		while (format[i] != '%' && format[i])
+		if (format[0] == '%')
 		{
-			_putchar(format[i]);
-			cprint++;
-			i++;
+			structype = driver(format);
+			if (structype)
+			{
+				q[0] = '%';
+				q[1] = format[1];
+				written += structype(q, pa);
+			}
+			else if (format[1] != '\0')
+			{
+				written += _putchar('%');
+				written += _putchar(format[1]);
+			}
+			else
+			{
+				written += _putchar('%');
+				break;
+			}
+			format += 2;
 		}
+<<<<<<< HEAD
 		if (format[i] == '\0')
 			return (cprint);
 		f = get_function(&format[i + 1]);
 		if (f != NULL)
-		{
-			cprint += f(ap);
-			i += 2;
-			continue;
-		}
-		if (!format[i + 1])
-			return (-1);
-		_putchar(format[i]);
-		cprint++;
-		if (format[i + 1] == '%')
-			i += 2;
+=======
 		else
-			i++;
+>>>>>>> fffbfc3a60dab06109a117c74ca21082dab7630a
+		{
+			written += _putchar(format[0]);
+			format++;
+		}
 	}
-	va_end(ap);
-	return (cprint);
+	_putchar(-2);
+	return (written);
 }
