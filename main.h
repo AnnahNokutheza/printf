@@ -2,6 +2,7 @@
 
 #define MAIN_H
 
+<<<<<<< HEAD
 #include <stdarg.h>
 
 #include <stdio.h>
@@ -54,8 +55,28 @@ int (*fn)(va_list, char[], int, int, int, int);
 typedef struct fmt fmt_t;
 
 
+=======
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
+
+/**
+ * struct format - Struct for format
+ * @specifiers: Struct format
+ * @f: The function associated
+ */
+
+typedef struct specifiers
+{
+	char specifiers;
+	int (*f)(va_list);
+} specifiers_t;
+>>>>>>> cb29c26fe2236f7d16a622cc9125cbdda3c94fd4
+
+/*prototypes*/
 int _printf(const char *format, ...);
+<<<<<<< HEAD
 
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
@@ -122,3 +143,4 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 #endif /* MAIN_H */
+
